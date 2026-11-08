@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi Stok | Toko Buku Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-halaman="stok">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo" aria-hidden="true"><i class="fa-solid fa-book-open-reader" style="font-size: 22px;"></i></span> Toko Buku</div>
+      <nav aria-label="Navigasi utama">
+        <small>MENU UTAMA</small>
+        <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a class="aktif" href="stok.html"><i class="fa-solid fa-warehouse"></i>Informasi Stok</a>
+        <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> Pemesanan</a>
+        <a href="tracking.html"><i class="fa-solid fa-truck"></i> Tracking</a>
+      </nav>
+      </nav>
+    </aside>
+    <div class="konten">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Modules › <strong>Informasi Stok</strong></p>
+          <p class="sub">SISTEM PEMESANAN BUKU</p>
+        </div>
+        <div class="user">
+          <div><strong id="namaUser"></strong><small>● ONLINE</small></div>
+          <span class="avatar" id="avatar" aria-hidden="true"></span>
+          <button class="btn sekunder kecil" id="btnLogout" type="button">Keluar</button>
+        </div>
+      </header>
+      <main>
+        <!-- Stok: tabel dirender dari dataKatalogBuku (js/data.js) -->
+        <section class="card">
+          <h2>Informasi Stok / Katalog</h2>
+          <label for="cariStok">Cari buku</label>
+          <input type="search" id="cariStok" placeholder="Kode, judul, atau penulis...">
+          <div class="tabel" style="margin-top:12px">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sampul</th>
+                  <th>Kode</th>
+                  <th>Judul</th>
+                  <th>Penulis</th>
+                  <th>Harga</th>
+                  <th>Stok</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyStok"></tbody>
+            </table>
+          </div>
+          <p class="total">Total: <strong id="jumlahRec">0</strong> records · badge oranye = stok kurang dari 10</p>
+        </section>
+        <section class="card">
+          <h2>Tambah Stok Baru</h2>
+          <form id="formStok">
+            <div class="grid">
+              <div><label for="kode">Kode buku</label><input id="kode" required></div>
+              <div><label for="judul">Judul</label><input id="judul" required></div>
+              <div><label for="penulis">Penulis</label><input id="penulis" required></div>
+              <div><label for="harga">Harga (Rp)</label><input type="number" id="harga" min="1" required></div>
+              <div><label for="jumlahStok">Jumlah stok</label><input type="number" id="jumlahStok" min="0" required>
+              </div>
+            </div>
+            <p class="pesan" id="pesanStok" role="alert"></p>
+            <button class="btn" type="submit">Tambah ke katalog</button>
+          </form>
+        </section>
+      </main>
+      <footer>
+        <p>Tugas UTS Pemrograman Web 1</p>
+      </footer>
+    </div>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

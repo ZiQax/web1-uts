@@ -1,0 +1,99 @@
+<!DOCTYPE html5>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Toko Buku Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-halaman="dashboard">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo" aria-hidden="true"><i class="fa-solid fa-book-open-reader" style="font-size: 22px;"></i></span> Toko Buku</div>
+      <nav aria-label="Navigasi utama">
+        <small>MENU UTAMA</small>
+        <a class="aktif" href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="stok.html"><i class="fa-solid fa-warehouse"></i>Informasi Stok</a>
+        <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> Pemesanan</a>
+        <a href="tracking.html"><i class="fa-solid fa-truck"></i> Tracking</a>
+      </nav>
+    </aside>
+    <div class="konten">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Modules › <strong>Dashboard</strong></p>
+          <p class="sub">SISTEM PEMESANAN BUKU</p>
+        </div>
+        <div class="user">
+          <div><strong id="namaUser"></strong><small>● ONLINE</small></div>
+          <span class="avatar" id="avatar" aria-hidden="true"></span>
+          <button class="btn sekunder kecil" id="btnLogout" type="button">Keluar</button>
+        </div>
+      </header>
+      <main>
+        <!-- Dashboard: greeting & statistik dibuat oleh initDashboard() -->
+        <section class="card">
+          <h2 id="greeting" style="margin-bottom:4px">Halo!</h2>
+          <p>Ringkasan stok dan akses cepat ke menu utama.</p>
+        </section>
+        <section class="grid stats" aria-label="Ringkasan stok">
+          <article class="stat biru">
+            <p>Total stok</p><strong id="sTotal">0</strong><span class="ikon" aria-hidden="true"><i class="fa-solid fa-boxes-stacked" style="font-size: 20px; color: rgb(0, 67, 126);"></i></span>
+          </article>
+          <article class="stat hijau">
+            <p>Barang masuk</p><strong id="sMasuk">0</strong><span class="ikon" aria-hidden="true"><i class="fa fa-arrows-down-to-line" style="font-size: 20px; color: rgb(4, 182, 33);"></i></span>
+          </article>
+          <article class="stat merah">
+            <p>Barang keluar</p><strong id="sKeluar">0</strong><span class="ikon" aria-hidden="true"><i class="fa fa-arrows-up-to-line" style="font-size: 20px; color: rgb(240, 87, 82);"></i></span>
+          </article>
+          <article class="stat kuning">
+            <p>Judul buku</p><strong id="sJudul">0</strong><span class="ikon" aria-hidden="true"><i class="fa-solid fa-book-open" style="font-size: 20ox; color: rgb(160, 120, 12);"></i></span>
+          </article>
+        </section>
+        <section class="grid" aria-label="Menu utama">
+          <a class="menu-btn" href="stok.html">Informasi Stok / Katalog</a>
+          <a class="menu-btn" href="tracking.html">Tracking Pengiriman</a>
+          <a class="menu-btn" href="checkout.html">Laporan Pemesanan</a>
+          <button class="menu-btn" id="btnHistory" type="button">History Transaksi</button>
+        </section>
+
+        <!-- Modal History Transaksi -->
+        <div class="modal" id="modalHistory">
+          <div class="modal-isi" role="dialog" aria-modal="true" aria-labelledby="jHist" style="width:min(820px,94%)">
+            <h2 id="jHist">History Transaksi</h2>
+            <div class="tabel">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Dokumen</th>
+                    <th>Tanggal</th>
+                    <th>Tipe</th>
+                    <th>Qty</th>
+                    <th>User</th>
+                    <th>Keterangan</th>
+                  </tr>
+                </thead>
+                <tbody id="tbodyHistory"></tbody>
+              </table>
+            </div>
+            <button class="btn" type="button" data-tutup="modalHistory">Tutup</button>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>Tugas UTS Pemrograman Web 1</p>
+      </footer>
+    </div>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

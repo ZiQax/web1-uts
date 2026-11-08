@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Toko Buku Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> <!-- CSS eksternal -->
+
+  <!-- CSS internal: khusus halaman login -->
+
+  <style>
+    body.auth {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px
+    }
+
+    .auth .card {
+      width: max(450px, 100%);
+      padding: 32px;
+      border-radius: 13px;
+      box-shadow: 0 10px 30px #1e293b1a;
+      margin: 0
+    }
+
+    .ikon-login {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: var(--primer-muda);
+      color: var(--primer);
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem
+    }
+
+    .auth h1,
+    .auth .tengah {
+      text-align: center
+    }
+  </style>
+</head>
+
+<body data-halaman="login" class="auth">
+  <!-- Halaman login: validasi di js/script.js (initLogin) -->
+  <main>
+    <section class="card">
+      <div class="ikon-login" aria-hidden="true">⇥</div>
+      <h1>Welcome Back</h1>
+      <!-- CSS inline -->
+      <p class="tengah" style="color:#64748b;margin-bottom:16px">Masuk untuk mengelola stok buku</p>
+      <form id="formLogin">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <!-- Container untuk opsi Remember Me & Forgot Password -->
+        <div class="login-options">
+          <label class="remember-container">
+            <input type="checkbox" id="rememberMe">
+            <span>Remember me</span>
+          </label>
+          <a href="#" id="btnLupa" class="forgot-link">Forgot password?</a>
+        </div>
+        <button class="btn" type="submit" style="width:100%">Login</button>
+      </form>
+      <p class="tengah" style="margin-top:18px;color:#64748b">Belum punya akun? <button class="link" id="btnDaftar"
+          type="button">Daftar sekarang</button></p>
+      <!-- <p class="tengah"><button class="link" id="btnLupa" type="button">Lupa Password</button></p> -->
+    </section>
+  </main>
+
+  <!-- Modal Lupa Password -->
+  <div class="modal" id="modalLupa">
+    <div class="modal-isi" role="dialog" aria-modal="true" aria-labelledby="jLupa">
+      <h2 id="jLupa">Lupa Password</h2>
+      <form id="formLupa">
+        <label for="emailLupa">Email terdaftar</label>
+        <input type="email" id="emailLupa" required>
+        <button class="btn" type="submit">Kirim tautan reset</button>
+        <button class="btn sekunder" type="button" data-tutup="modalLupa">Batal</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Daftar (tombol oranye sesuai referensi) -->
+  <div class="modal" id="modalDaftar">
+    <div class="modal-isi" role="dialog" aria-modal="true" aria-labelledby="jDaftar">
+      <h2 id="jDaftar" style="text-align:center;margin:0">Buat Akun</h2>
+      <p style="text-align:center;color:#64748b">Daftarkan user baru</p>
+      <form id="formDaftar">
+        <label for="namaDaftar">Nama lengkap</label><input id="namaDaftar" required>
+        <label for="emailDaftar">Email</label><input type="email" id="emailDaftar" required>
+        <label for="passDaftar">Password (min. 6 karakter)</label><input type="password" id="passDaftar" required>
+        <label for="roleDaftar">Role</label>
+        <select id="roleDaftar">
+          <option>User<option>
+          <option>Admin</option>
+        </select>
+        <label for="deptDaftar">Departemen / Tenant</label>
+        <select id="deptDaftar" required>
+          <option value="">Pilih Departemen...</option>
+          <option>Gudang</option>
+          <option>Penjualan</option>
+          <option>Keuangan</option>
+        </select>
+        <button class="btn oranye" type="submit" style="width:100%">Daftar</button>
+      </form>
+      <p style="text-align:center;margin-top:16px;color:#64748b">Sudah punya akun? <button class="link oranye"
+          id="keLogin" type="button">Login disini</button></p>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

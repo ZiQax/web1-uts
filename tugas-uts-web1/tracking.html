@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracking Pengiriman | Toko Buku Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-halaman="tracking">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo" aria-hidden="true"><i class="fa-solid fa-book-open-reader" style="font-size: 22px;"></i></span> Toko Buku</div>
+      <nav aria-label="Navigasi utama">
+        <small>MENU UTAMA</small>
+        <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="stok.html"><i class="fa-solid fa-warehouse"></i>Informasi Stok</a>
+        <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> Pemesanan</a>
+        <a class="aktif" href="tracking.html"><i class="fa-solid fa-truck"></i> Tracking</a>
+      </nav>
+    </aside>
+    <div class="konten">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Modules › <strong>Tracking Pengiriman</strong></p>
+          <p class="sub">SISTEM PEMESANAN BUKU</p>
+        </div>
+        <div class="user">
+          <div><strong id="namaUser"></strong><small>● ONLINE</small></div>
+          <span class="avatar" id="avatar" aria-hidden="true"></span>
+          <button class="btn sekunder kecil" id="btnLogout" type="button">Keluar</button>
+        </div>
+      </header>
+      <main>
+        <!-- Tracking: cari berdasarkan Nomor Delivery Order (contoh: DO20260002) -->
+        <section class="card">
+          <h2>Tracking Pengiriman</h2>
+          <form id="formCari">
+            <label for="noDO">Nomor Delivery Order</label>
+            <input id="noDO" placeholder="DO20260002" required>
+            <button class="btn" type="submit">Cari</button>
+          </form>
+        </section>
+        <section class="card" id="hasil" hidden>
+          <h2>Hasil Pencarian</h2>
+          <dl>
+            <dt>Nama pemesan</dt>
+            <dd id="tNama"></dd>
+            <dt>Ekspedisi</dt>
+            <dd id="tEkspedisi"></dd>
+            <dt>Tanggal kirim</dt>
+            <dd id="tTanggal"></dd>
+            <dt>Jenis paket</dt>
+            <dd id="tPaket"></dd>
+            <dt>Total pembayaran</dt>
+            <dd id="tTotal"></dd>
+            <dt>Status pengiriman</dt>
+            <dd id="tStatus"></dd>
+          </dl>
+          <div class="progress" aria-hidden="true">
+            <div id="bar"></div>
+          </div>
+          <div class="langkah" id="langkah"></div>
+        </section>
+      </main>
+      <footer>
+        <p>Tugas UTS Pemrograman Web 1</p>
+      </footer>
+    </div>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

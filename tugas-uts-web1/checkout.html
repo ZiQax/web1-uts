@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan | Toko Buku Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="checkout">
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="logo" aria-hidden="true"><i class="fa-solid fa-book-open-reader" style="font-size: 22px;"></i></span> Toko Buku</div>
+    <nav aria-label="Navigasi utama">
+      <small>MENU UTAMA</small>
+        <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="stok.html"><i class="fa-solid fa-warehouse"></i>Informasi Stok</a>
+        <a class="aktif" href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> Pemesanan</a>
+        <a href="tracking.html"><i class="fa-solid fa-truck"></i> Tracking</a>
+    </nav>
+  </aside>
+  <div class="konten">
+    <header class="topbar">
+      <div><p class="crumb">Modules › <strong>Pemesanan</strong></p><p class="sub">SISTEM PEMESANAN BUKU</p></div>
+      <div class="user">
+        <div><strong id="namaUser"></strong><small>● ONLINE</small></div>
+        <span class="avatar" id="avatar" aria-hidden="true"></span>
+        <button class="btn sekunder kecil" id="btnLogout" type="button">Keluar</button>
+      </div>
+    </header>
+    <main>
+<!-- Pemesanan: keranjang dapat ditambah/diubah/dihapus lewat DOM -->
+<section class="card">
+  <h2>Keranjang Pemesanan</h2>
+  <div class="grid">
+    <div><label for="pilihBuku">Buku</label><select id="pilihBuku"></select></div>
+    <div><label for="jumlah">Jumlah</label><input type="number" id="jumlah" min="1" value="1"></div>
+  </div>
+  <button class="btn" id="btnTambah" type="button">Tambah ke keranjang</button>
+  <div class="tabel" style="margin-top:16px"><table>
+    <thead><tr><th>Judul</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Aksi</th></tr></thead>
+    <tbody id="tbodyKeranjang"></tbody>
+  </table></div>
+  <p><strong>Total: <span id="totalBayar">Rp 0</span></strong></p>
+</section>
+<section class="card">
+  <h2>Data Pemesan &amp; Pembayaran</h2>
+  <form id="formCheckout">
+    <div class="grid">
+      <div><label for="nama">Nama pemesan</label><input id="nama" required></div>
+      <div><label for="telepon">Nomor telepon</label><input id="telepon" placeholder="081234567890" required></div>
+      <div><label for="alamat">Alamat pengiriman</label><input id="alamat" required></div>
+      <div><label for="ekspedisi">Ekspedisi</label><select id="ekspedisi"><option>JNE</option><option>J&amp;T Express</option><option>SiCepat</option></select></div>
+      <div><label for="paket">Jenis paket</label><select id="paket"><option>Reguler</option><option>Ekspres</option></select></div>
+      <div><label for="pembayaran">Metode pembayaran</label><select id="pembayaran"><option>Transfer Bank</option><option>E-Wallet</option><option>COD</option></select></div>
+    </div>
+    <p class="pesan" id="pesanCheckout" role="alert"></p>
+    <button class="btn" type="submit">Pesan sekarang</button>
+  </form>
+</section>
+
+<!-- Modal pesanan berhasil -->
+<div class="modal" id="modalSukses"><div class="modal-isi" role="dialog" aria-modal="true" aria-labelledby="jSukses">
+  <h2 id="jSukses">Pesanan berhasil</h2>
+  <p>Nomor Delivery Order Anda: <strong id="noDOBaru"></strong></p>
+  <p>Gunakan nomor ini di halaman Tracking.</p>
+  <button class="btn" type="button" data-tutup="modalSukses">Tutup</button>
+  <a class="btn" href="tracking.html" style="display:inline-block;text-decoration:none">Lacak pesanan</a>
+</div></div>
+    </main>
+    <footer><p>Tugas UTS Pemrograman Web 1</p></footer>
+  </div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
