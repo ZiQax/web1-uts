@@ -31,7 +31,7 @@ tugas-uts-web1/
 ## Cara Menjalankan
 
 1. Ekstrak proyek, lalu buka `index.html` di browser (tidak perlu server).
-2. Login dengan akun demo: **mahasiswa@ut.ac.id** / **123456**.
+2. Login dengan akun demo yang tersedia pada file data.js
 3. Untuk mencoba tracking, gunakan nomor `DO20260001`, `DO20260002`, atau `DO20260003`. Pesanan baru dari halaman Pemesanan juga mendapat nomor DO yang dapat dilacak.
 
 ## Pemetaan ke Indikator & Kriteria Penilaian
